@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddMahasiswa">
+    <TextView
+        android:id="@+id/editMahasiswaHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:text="Edit Mahasiswa"
+        android:textColor="@color/blue"
+        android:textSize="24sp"
+        />
+
+    <ImageView
+        android:id="@+id/saveButton"
+        android:layout_width="58dp"
+        android:layout_height="61dp"
+        android:layout_alignBottom="@id/editMahasiswaHeading"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="-354dp"
+        android:src="@drawable/outline_download_24" />
+
+    <EditText
+        android:id="@+id/editNimEditText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="NIM..."
+        android:padding="12dp"
+        android:textSize="20sp"
+        android:layout_below="@id/editMahasiswaHeading"
+        android:background="@drawable/border"
+        android:maxLines="1"
+        android:layout_marginTop="12dp"
+        />
+    <EditText
+        android:id="@+id/editNamaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="NAMA..."
+        android:gravity="top"
+        android:padding="12dp"
+        android:textSize="20sp"
+        android:background="@drawable/border"
+        android:layout_below="@id/editNimEditText"
+        android:layout_marginTop="12dp"
+        />
+
+    <EditText
+        android:id="@+id/editProdiEditText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/editNamaEditText"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/border"
+        android:gravity="top"
+        android:hint="Prodi..."
+        android:padding="12dp"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/editJenisKelaminEditText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/editProdiEditText"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/border"
+        android:hint="Jenis Kelamin..."
+        android:maxLines="1"
+        android:padding="12dp"
+        android:textSize="18sp" />
+</RelativeLayout>
