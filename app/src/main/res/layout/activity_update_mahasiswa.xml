@@ -28,7 +28,7 @@
         android:layout_alignBottom="@id/editMahasiswaHeading"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="36dp"
-        android:layout_marginBottom="-374dp"
+        android:layout_marginBottom="-535dp"
         android:src="@drawable/outline_download_24" />
 
     <EditText
@@ -77,6 +77,30 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/border"
         android:hint="Jenis Kelamin..."
+        android:maxLines="1"
+        android:padding="12dp"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editAlamatEditText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/editJenisKelaminEditText"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/border"
+        android:hint="alamat..."
+        android:maxLines="1"
+        android:padding="12dp"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editSemesterEditText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/editAlamatEditText"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/border"
+        android:hint="semester..."
         android:maxLines="1"
         android:padding="12dp"
         android:textSize="18sp" />

@@ -30,13 +30,16 @@ class AddMahasiswa : AppCompatActivity() {
             val nama = binding.namaEditText.text.toString()
             val prodi = binding.prodiEditText.text.toString()
             val jenisKelamin = binding.jenisKelaminEditText.text.toString()
+            val alamat = binding.AlamatEditText.text.toString()
+            val semester = binding.SemesterEditText.text.toString()
+
 
             if (nim.isEmpty() || nama.isEmpty() || prodi.isEmpty() || jenisKelamin.isEmpty()) {
                 Toast.makeText(this, "Harap isi semua kolom!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val mahasiswa = Mahasiswa(nim, nama, prodi, jenisKelamin)
+            val mahasiswa = Mahasiswa(nim, nama, prodi, jenisKelamin, alamat, semester)
             dbHelper.InsertMahasiswa(mahasiswa)
 
             // Tampilkan dan mainkan animasi sukses

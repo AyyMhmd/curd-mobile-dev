@@ -1,5 +1,6 @@
 package com.example.crudayi
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
@@ -14,6 +15,7 @@ class UpdateMahasiswaActivity : AppCompatActivity() {
     private lateinit var db: DBHelper
     private var Fnim: String = ""
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -23,6 +25,8 @@ class UpdateMahasiswaActivity : AppCompatActivity() {
         val editNamaEditText = findViewById<EditText>(R.id.editNamaEditText)
         val editProdiEditText = findViewById<EditText>(R.id.editProdiEditText)
         val editJenisKelaminEditText = findViewById<EditText>(R.id.editJenisKelaminEditText) // Inisialisasi EditText baru
+        val editAlamatEditText = findViewById<EditText>(R.id.editAlamatEditText)
+        val editSemesterEditText = findViewById<EditText>(R.id.editSemesterEditText)
         val saveButton = findViewById<ImageView>(R.id.saveButton)
 
         Fnim = intent.getStringExtra("oldNim") ?: return run { // Menggunakan "oldNim" dan Elvis operator
@@ -39,6 +43,8 @@ class UpdateMahasiswaActivity : AppCompatActivity() {
             editNamaEditText.setText(mhsw.nama)
             editProdiEditText.setText(mhsw.prodi)
             editJenisKelaminEditText.setText(mhsw.jenisKelamin) // Isi nilai jenis kelamin
+            editAlamatEditText.setText(mhsw.alamat)
+            editSemesterEditText.setText(mhsw.semester)
         } else {
             Toast.makeText(this, "Data mahasiswa tidak ditemukan.", Toast.LENGTH_LONG).show()
             finish()
@@ -50,8 +56,12 @@ class UpdateMahasiswaActivity : AppCompatActivity() {
             val newNAMA = editNamaEditText.text.toString()
             val newProdi = editProdiEditText.text.toString()
             val newJenisKelamin = editJenisKelaminEditText.text.toString() // Ambil nilai jenis kelamin baru
+            val newAlamat = editAlamatEditText.text.toString()
+            val newSemester = editSemesterEditText.text.toString()
 
-            val updateMhsw = Mahasiswa(newNIM, newNAMA, newProdi, newJenisKelamin) // Masukkan jenis kelamin
+
+
+            val updateMhsw = Mahasiswa(newNIM, newNAMA, newProdi, newJenisKelamin, newAlamat, newSemester ) // Masukkan jenis kelamin
             db.updateMahasiswa(Fnim, updateMhsw)
 
             Toast.makeText(this, "Data Berhasil Diupdate", Toast.LENGTH_LONG).show()
