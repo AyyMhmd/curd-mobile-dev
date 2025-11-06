@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class DBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
     override fun onCreate(db: SQLiteDatabase?) {
-        val QueryTabel ="CREATE TABLE $TABLE_NAME ($COLUMN_NIM TEXT PRIMARY KEY, $COLUMN_NAMA TEXT, $COLUMN_PRODI TEXT, $COLUMN_JENIS_KELAMIN TEXT)"
+        val QueryTabel ="CREATE TABLE $TABLE_NAME ($COLUMN_NIM TEXT PRIMARY KEY, $COLUMN_NAMA TEXT, $COLUMN_PRODI TEXT, $COLUMN_JENIS_KELAMIN TEXT, $COLUMN_ALAMAT TEXT, $COLUMN_SEMESTER TEXT)"
         db?.execSQL(QueryTabel)
     }
 
@@ -28,6 +28,8 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
             put(COLUMN_NAMA, mahasiswa.nama)
             put(COLUMN_PRODI, mahasiswa.prodi)
             put(COLUMN_JENIS_KELAMIN, mahasiswa.jenisKelamin)
+            put(COLUMN_ALAMAT, mahasiswa.alamat)
+            put(COLUMN_SEMESTER, mahasiswa.semester)
         }
         db.insert(TABLE_NAME, null, dataMahasiswa)
         db.close()
@@ -44,7 +46,9 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
                 val nama = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAMA))
                 val prodi = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PRODI))
                 val jenisKelamin = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_JENIS_KELAMIN))
-                val mahasiswa = Mahasiswa(nim, nama, prodi, jenisKelamin)
+                val alamat = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ALAMAT))
+                val semester = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_SEMESTER))
+                val mahasiswa = Mahasiswa(nim, nama, prodi, jenisKelamin, alamat, semester)
                 mahasiswaList.add(mahasiswa)
             } while (cursor.moveToNext())
         }
@@ -61,6 +65,10 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
         private const val COLUMN_NAMA = "nama"
         private const val COLUMN_PRODI = "prodi"
         private const val COLUMN_JENIS_KELAMIN = "jenisKelamin"
+        private const val COLUMN_ALAMAT = "alamat"
+        private const val COLUMN_SEMESTER = "semester"
+
+
 
     }
     fun getMhswbyNIM (nim: String): Mahasiswa? { // Mengembalikan Mahasiswa? (nullable)
@@ -74,7 +82,9 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
             val foundNama = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAMA))
             val foundProdi = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PRODI))
             val foundJenisKelamin = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_JENIS_KELAMIN))
-            mahasiswa = Mahasiswa(foundNim, foundNama, foundProdi, foundJenisKelamin)
+            val foundAlamat = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ALAMAT))
+            val foundSemester = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_SEMESTER))
+            mahasiswa = Mahasiswa(foundNim, foundNama, foundProdi, foundJenisKelamin, foundAlamat, foundSemester)
         }
         cursor.close()
         db.close()
@@ -87,6 +97,8 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
             put(COLUMN_NAMA, mahasiswa.nama)
             put(COLUMN_PRODI, mahasiswa.prodi)
             put(COLUMN_JENIS_KELAMIN, mahasiswa.jenisKelamin)
+            put(COLUMN_ALAMAT, mahasiswa.alamat)
+            put(COLUMN_SEMESTER, mahasiswa.semester)
         }
         val where = "$COLUMN_NIM = ?"
         val arg = arrayOf(oldNIM) 

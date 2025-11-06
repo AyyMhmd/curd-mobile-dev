@@ -18,6 +18,8 @@ class MahasiswaAdapter(private var mahasiswaList: List<Mahasiswa>, private val c
         val namaTextView: TextView = itemView.findViewById(R.id.namaTextView)
         val prodiTextView: TextView = itemView.findViewById(R.id.prodiTextView)
         val jenisKelaminTextView: TextView = itemView.findViewById(R.id.jenisKelaminTextView) // Inisialisasi TextView baru
+        val alamatTextView: TextView = itemView.findViewById(R.id.AlamatTextView)
+        val semesterTextView: TextView = itemView.findViewById(R.id.SemesterTextView)
         val updateButton: TextView = itemView.findViewById(R.id.updateButton)
         val deleteButton: TextView = itemView.findViewById(R.id.deleteButton)
     }
@@ -33,6 +35,9 @@ class MahasiswaAdapter(private var mahasiswaList: List<Mahasiswa>, private val c
         holder.namaTextView.text = "Nama: ${mahasiswa.nama}"
         holder.prodiTextView.text = "Prodi: ${mahasiswa.prodi}"
         holder.jenisKelaminTextView.text = "Jenis Kelamin: ${mahasiswa.jenisKelamin}"
+        holder.alamatTextView.text = "Alamat: ${mahasiswa.alamat}"
+        holder.semesterTextView.text = "Semester: ${mahasiswa.semester}"
+
 
         holder.updateButton.setOnClickListener {
             val intent = Intent(holder.itemView.context, UpdateMahasiswaActivity::class.java)
