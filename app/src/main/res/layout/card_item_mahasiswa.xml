@@ -79,20 +79,28 @@
             android:text="Jenis Kelamin: Contoh Jenis Kelamin"/>
 
         <TextView
-            android:id="@+id/AlamatTextView"
+            android:id="@+id/alamatTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:layout_marginTop="4dp"
-            android:text="Alamat: Contoh Alamat"/>
+            android:text="alamat: Contoh Alamat"/>
 
         <TextView
-            android:id="@+id/SemesterTextView"
+            android:id="@+id/semesterTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:layout_marginTop="4dp"
-            android:text="Semester: Contoh Semester"/>
+            android:text="semester: Contoh Semester"/>
+        <TextView
+            android:id="@+id/TahunMasukEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp"
+            android:text="tahunmasuk: Contoh TahunMasuk"/>
+
 
     </LinearLayout>
 

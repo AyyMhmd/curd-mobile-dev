@@ -26,7 +26,6 @@
         android:layout_below="@id/Heading"
         android:padding="16dp"
         />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/TombolTambah"
         android:layout_width="72dp"
@@ -34,8 +33,10 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="55dp"
+        android:layout_marginEnd="24dp"
         android:backgroundTint="@color/cardview_shadow_end_color"
-        android:src="@drawable/baseline_add_24" />
+        android:src="@drawable/baseline_add_24"
+        android:contentDescription="@string/tambah_data"/>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/successAnimationView"

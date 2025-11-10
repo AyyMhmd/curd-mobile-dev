@@ -7,6 +7,7 @@ data class Mahasiswa(
     val jenisKelamin: String,
     val alamat : String,
     val semester : String,
+    val tahunmasuk : String,
 )
 
 

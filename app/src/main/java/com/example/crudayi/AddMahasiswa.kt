@@ -32,6 +32,8 @@ class AddMahasiswa : AppCompatActivity() {
             val jenisKelamin = binding.jenisKelaminEditText.text.toString()
             val alamat = binding.AlamatEditText.text.toString()
             val semester = binding.SemesterEditText.text.toString()
+            val tahunmasuk = binding.TahunMasukEditText.text.toString()
+
 
 
             if (nim.isEmpty() || nama.isEmpty() || prodi.isEmpty() || jenisKelamin.isEmpty()) {
@@ -39,7 +41,7 @@ class AddMahasiswa : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val mahasiswa = Mahasiswa(nim, nama, prodi, jenisKelamin, alamat, semester)
+            val mahasiswa = Mahasiswa(nim, nama, prodi, jenisKelamin, alamat, semester,tahunmasuk)
             dbHelper.InsertMahasiswa(mahasiswa)
 
             // Tampilkan dan mainkan animasi sukses

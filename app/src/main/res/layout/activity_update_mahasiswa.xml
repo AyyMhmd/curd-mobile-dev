@@ -104,6 +104,17 @@
         android:maxLines="1"
         android:padding="12dp"
         android:textSize="18sp" />
+    <EditText
+        android:id="@+id/editTahunMasukEditText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/editSemesterEditText"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/border"
+        android:hint="tahunmasuk..."
+        android:maxLines="1"
+        android:padding="12dp"
+        android:textSize="18sp" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/successAnimationView"

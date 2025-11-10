@@ -18,8 +18,9 @@ class MahasiswaAdapter(private var mahasiswaList: List<Mahasiswa>, private val c
         val namaTextView: TextView = itemView.findViewById(R.id.namaTextView)
         val prodiTextView: TextView = itemView.findViewById(R.id.prodiTextView)
         val jenisKelaminTextView: TextView = itemView.findViewById(R.id.jenisKelaminTextView) // Inisialisasi TextView baru
-        val alamatTextView: TextView = itemView.findViewById(R.id.AlamatTextView)
-        val semesterTextView: TextView = itemView.findViewById(R.id.SemesterTextView)
+        val alamatTextView: TextView = itemView.findViewById(R.id.alamatTextView)
+        val semesterTextView: TextView = itemView.findViewById(R.id.semesterTextView)
+        val tahunmasukTextView: TextView =itemView.findViewById(R.id.TahunMasukEditText)
         val updateButton: TextView = itemView.findViewById(R.id.updateButton)
         val deleteButton: TextView = itemView.findViewById(R.id.deleteButton)
     }
@@ -37,13 +38,15 @@ class MahasiswaAdapter(private var mahasiswaList: List<Mahasiswa>, private val c
         holder.jenisKelaminTextView.text = "Jenis Kelamin: ${mahasiswa.jenisKelamin}"
         holder.alamatTextView.text = "Alamat: ${mahasiswa.alamat}"
         holder.semesterTextView.text = "Semester: ${mahasiswa.semester}"
-
+        holder.tahunmasukTextView.text ="Tahun Masuk: ${mahasiswa.tahunmasuk}"
 
         holder.updateButton.setOnClickListener {
             val intent = Intent(holder.itemView.context, UpdateMahasiswaActivity::class.java)
-            intent.putExtra("oldNim", mahasiswa.nim)
+            intent.putExtra("OldNim", mahasiswa.nim)
             holder.itemView.context.startActivity(intent)
-        }
+
+
+    }
 
         holder.deleteButton.setOnClickListener {
             dbHelper.deleteMahasiswa(mahasiswa.nim)

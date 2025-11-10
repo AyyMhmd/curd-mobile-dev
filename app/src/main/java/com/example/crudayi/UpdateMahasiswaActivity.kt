@@ -27,6 +27,7 @@ class UpdateMahasiswaActivity : AppCompatActivity() {
         val editJenisKelaminEditText = findViewById<EditText>(R.id.editJenisKelaminEditText) // Inisialisasi EditText baru
         val editAlamatEditText = findViewById<EditText>(R.id.editAlamatEditText)
         val editSemesterEditText = findViewById<EditText>(R.id.editSemesterEditText)
+        val editTahunMasukEditText = findViewById<EditText>(R.id.editTahunMasukEditText)
         val saveButton = findViewById<ImageView>(R.id.saveButton)
 
         Fnim = intent.getStringExtra("oldNim") ?: return run { // Menggunakan "oldNim" dan Elvis operator
@@ -45,6 +46,8 @@ class UpdateMahasiswaActivity : AppCompatActivity() {
             editJenisKelaminEditText.setText(mhsw.jenisKelamin) // Isi nilai jenis kelamin
             editAlamatEditText.setText(mhsw.alamat)
             editSemesterEditText.setText(mhsw.semester)
+            editTahunMasukEditText.setText(mhsw.tahunmasuk)
+
         } else {
             Toast.makeText(this, "Data mahasiswa tidak ditemukan.", Toast.LENGTH_LONG).show()
             finish()
@@ -58,10 +61,11 @@ class UpdateMahasiswaActivity : AppCompatActivity() {
             val newJenisKelamin = editJenisKelaminEditText.text.toString() // Ambil nilai jenis kelamin baru
             val newAlamat = editAlamatEditText.text.toString()
             val newSemester = editSemesterEditText.text.toString()
+            val newTahunMasuk =editTahunMasukEditText.text.toString()
 
 
 
-            val updateMhsw = Mahasiswa(newNIM, newNAMA, newProdi, newJenisKelamin, newAlamat, newSemester ) // Masukkan jenis kelamin
+            val updateMhsw = Mahasiswa(newNIM, newNAMA, newProdi, newJenisKelamin, newAlamat, newSemester, newTahunMasuk) // Masukkan jenis kelamin
             db.updateMahasiswa(Fnim, updateMhsw)
 
             Toast.makeText(this, "Data Berhasil Diupdate", Toast.LENGTH_LONG).show()
