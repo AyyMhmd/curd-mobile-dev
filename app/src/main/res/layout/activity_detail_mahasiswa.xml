@@ -7,13 +7,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".AddMahasiswa">
+    tools:context=".DetailMahasiswaActivity">
 
     <TextView
-        android:id="@+id/addMahasiswaTitle"
+        android:id="@+id/detailTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tambah Mahasiswa"
+        android:text="Detail Mahasiswa"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/blue"
@@ -24,192 +24,208 @@
 
     <!-- NIM Card -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardNimInput"
+        android:id="@+id/cardNim"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/addMahasiswaTitle"
+        app:layout_constraintTop_toBottomOf="@id/detailTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <EditText
-            android:id="@+id/nimEditText"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="NIM ..."
+        <TextView
+            android:id="@+id/detailNimTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:padding="12dp"
             android:textSize="18sp"
-            android:maxLines="1"
-            android:background="@android:color/transparent"/>
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:text="NIM: "/>
     </androidx.cardview.widget.CardView>
 
     <!-- Nama Card -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardNamaInput"
+        android:id="@+id/cardNama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/cardNimInput"
+        app:layout_constraintTop_toBottomOf="@id/cardNim"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <EditText
-            android:id="@+id/namaEditText"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="NAMA ..."
+        <TextView
+            android:id="@+id/detailNamaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:padding="12dp"
             android:textSize="18sp"
-            android:maxLines="1"
-            android:background="@android:color/transparent"/>
+            android:textColor="@android:color/black"
+            android:text="Nama: "/>
     </androidx.cardview.widget.CardView>
 
     <!-- Prodi Card -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardProdiInput"
+        android:id="@+id/cardProdi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/cardNamaInput"
+        app:layout_constraintTop_toBottomOf="@id/cardNama"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <EditText
-            android:id="@+id/prodiEditText"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="PRODI ..."
+        <TextView
+            android:id="@+id/detailProdiTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:padding="12dp"
             android:textSize="18sp"
-            android:maxLines="1"
-            android:background="@android:color/transparent"/>
+            android:textColor="@android:color/black"
+            android:text="Prodi: "/>
     </androidx.cardview.widget.CardView>
 
     <!-- Jenis Kelamin Card -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardJenisKelaminInput"
+        android:id="@+id/cardJenisKelamin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/cardProdiInput"
+        app:layout_constraintTop_toBottomOf="@id/cardProdi"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <EditText
-            android:id="@+id/jenisKelaminEditText"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="Jenis Kelamin ..."
+        <TextView
+            android:id="@+id/detailJenisKelaminTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:padding="12dp"
             android:textSize="18sp"
-            android:maxLines="1"
-            android:background="@android:color/transparent"/>
+            android:textColor="@android:color/black"
+            android:text="Jenis Kelamin: "/>
     </androidx.cardview.widget.CardView>
 
     <!-- Alamat Card -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardAlamatInput"
+        android:id="@+id/cardAlamat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/cardJenisKelaminInput"
+        app:layout_constraintTop_toBottomOf="@id/cardJenisKelamin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <EditText
-            android:id="@+id/AlamatEditText"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="Alamat ..."
+        <TextView
+            android:id="@+id/detailAlamatTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:padding="12dp"
             android:textSize="18sp"
-            android:maxLines="1"
-            android:background="@android:color/transparent"/>
+            android:textColor="@android:color/black"
+            android:text="Alamat: "/>
     </androidx.cardview.widget.CardView>
 
     <!-- Tahun Masuk Card -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardTahunMasukInput"
+        android:id="@+id/cardTahunMasuk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/cardAlamatInput"
+        app:layout_constraintTop_toBottomOf="@id/cardAlamat"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <EditText
-            android:id="@+id/TahunMasukEditText"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="Tahun Masuk ..."
+        <TextView
+            android:id="@+id/detailTahunMasukTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:padding="12dp"
             android:textSize="18sp"
-            android:maxLines="1"
-            android:background="@android:color/transparent"/>
+            android:textColor="@android:color/black"
+            android:text="Tahun Masuk: "/>
     </androidx.cardview.widget.CardView>
 
     <!-- NoHp Card -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardNoHpInput"
+        android:id="@+id/cardNoHp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/cardTahunMasukInput"
+        app:layout_constraintTop_toBottomOf="@id/cardTahunMasuk"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <EditText
-            android:id="@+id/noHpEditText"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="No. HP ..."
+        <TextView
+            android:id="@+id/detailNoHpTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:padding="12dp"
             android:textSize="18sp"
-            android:maxLines="1"
-            android:inputType="phone"
-            android:background="@android:color/transparent"/>
+            android:textColor="@android:color/black"
+            android:text="No. HP: "/>
     </androidx.cardview.widget.CardView>
 
     <!-- Email Card -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardEmailInput"
+        android:id="@+id/cardEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/cardNoHpInput"
+        app:layout_constraintTop_toBottomOf="@id/cardNoHp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <EditText
-            android:id="@+id/emailEditText"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="Email ..."
+        <TextView
+            android:id="@+id/detailEmailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:padding="12dp"
             android:textSize="18sp"
-            android:maxLines="1"
-            android:inputType="textEmailAddress"
-            android:background="@android:color/transparent"/>
+            android:textColor="@android:color/black"
+            android:text="Email: "/>
     </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/saveButton"
-        android:layout_width="58dp"
-        android:layout_height="61dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/baseline_add_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:id="@+id/detailActionButtonsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/cardEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <ImageView
+            android:id="@+id/detailEditButton"
+            android:layout_width="52dp"
+            android:layout_height="55dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/outline_edit_24"
+            app:tint="@color/blue"/>
+
+        <ImageView
+            android:id="@+id/detailDeleteButton"
+            android:layout_width="52dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/outline_delete_24"
+            app:tint="@color/blue"/>
+
+    </LinearLayout>
+
+    <!-- Lottie Animation View for success -->
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/successAnimationView"
         android:layout_width="200dp"

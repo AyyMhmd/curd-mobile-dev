@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class DBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
     override fun onCreate(db: SQLiteDatabase?) {
-        val QueryTabel ="CREATE TABLE $TABLE_NAME ($COLUMN_NIM TEXT PRIMARY KEY, $COLUMN_NAMA TEXT, $COLUMN_PRODI TEXT, $COLUMN_JENIS_KELAMIN TEXT, $COLUMN_ALAMAT TEXT, $COLUMN_SEMESTER TEXT,$COLUMN_TAHUNMASUK)"
+        val QueryTabel ="CREATE TABLE $TABLE_NAME ($COLUMN_NIM TEXT PRIMARY KEY, $COLUMN_NAMA TEXT, $COLUMN_PRODI TEXT, $COLUMN_JENIS_KELAMIN TEXT, $COLUMN_ALAMAT TEXT, $COLUMN_TAHUN_MASUK TEXT, $COLUMN_NOHP TEXT, $COLUMN_EMAIL TEXT)"
         db?.execSQL(QueryTabel)
     }
 
@@ -29,8 +29,9 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
             put(COLUMN_PRODI, mahasiswa.prodi)
             put(COLUMN_JENIS_KELAMIN, mahasiswa.jenisKelamin)
             put(COLUMN_ALAMAT, mahasiswa.alamat)
-            put(COLUMN_SEMESTER, mahasiswa.semester)
-            put(COLUMN_TAHUNMASUK,mahasiswa.tahunmasuk)
+            put(COLUMN_TAHUN_MASUK, mahasiswa.tahunMasuk)
+            put(COLUMN_NOHP, mahasiswa.noHp)
+            put(COLUMN_EMAIL, mahasiswa.email)
         }
         db.insert(TABLE_NAME, null, dataMahasiswa)
         db.close()
@@ -48,9 +49,10 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
                 val prodi = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PRODI))
                 val jenisKelamin = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_JENIS_KELAMIN))
                 val alamat = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ALAMAT))
-                val semester = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_SEMESTER))
-                val tahunmasuk = cursor.getString(cursor.getColumnIndexOrThrow( COLUMN_TAHUNMASUK))
-                val mahasiswa = Mahasiswa(nim, nama, prodi, jenisKelamin, alamat, semester, tahunmasuk)
+                val tahunMasuk = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TAHUN_MASUK))
+                val noHp = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOHP))
+                val email = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_EMAIL))
+                val mahasiswa = Mahasiswa(nim, nama, prodi, jenisKelamin, alamat, tahunMasuk, noHp, email)
                 mahasiswaList.add(mahasiswa)
             } while (cursor.moveToNext())
         }
@@ -61,23 +63,22 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
 
     companion object{
         private const val DATABASE_NAME = "mahasiswa.db"
-        private const val DATABASE_VERSION = 3 // <-- VERSI INI DINAINKAN KE 3
+        private const val DATABASE_VERSION = 7 // <-- VERSI INI DINAINKAN KE 7
         private const val TABLE_NAME = "Mahasiswa"
         private const val COLUMN_NIM = "nim"
         private const val COLUMN_NAMA = "nama"
         private const val COLUMN_PRODI = "prodi"
         private const val COLUMN_JENIS_KELAMIN = "jenisKelamin"
         private const val COLUMN_ALAMAT = "alamat"
-        private const val COLUMN_SEMESTER = "semester"
-        private const val COLUMN_TAHUNMASUK = "tahunmasuk"
-
-
-
+        private const val COLUMN_TAHUN_MASUK = "tahunMasuk"
+        private const val COLUMN_NOHP = "noHp"
+        private const val COLUMN_EMAIL = "email"
     }
-    fun getMhswbyNIM (nim: String): Mahasiswa? { // Mengembalikan Mahasiswa? (nullable)
+
+    fun getMhswbyNIM (nim: String): Mahasiswa? { 
         val db = readableDatabase
-        val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_NIM = ?" // Menggunakan placeholder
-        val cursor = db.rawQuery(query, arrayOf(nim)) // Menggunakan selectionArgs
+        val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_NIM = ?" 
+        val cursor = db.rawQuery(query, arrayOf(nim)) 
         
         var mahasiswa: Mahasiswa? = null
         if (cursor.moveToFirst()) {
@@ -86,15 +87,16 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
             val foundProdi = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PRODI))
             val foundJenisKelamin = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_JENIS_KELAMIN))
             val foundAlamat = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ALAMAT))
-            val foundSemester = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_SEMESTER))
-            val foundTahunMasuk = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TAHUNMASUK))
-
-            mahasiswa = Mahasiswa(foundNim, foundNama, foundProdi, foundJenisKelamin, foundAlamat, foundSemester, foundTahunMasuk)
+            val foundTahunMasuk = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TAHUN_MASUK))
+            val foundNoHp = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOHP))
+            val foundEmail = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_EMAIL))
+            mahasiswa = Mahasiswa(foundNim, foundNama, foundProdi, foundJenisKelamin, foundAlamat, foundTahunMasuk, foundNoHp, foundEmail)
         }
         cursor.close()
         db.close()
         return mahasiswa
     }
+
     fun updateMahasiswa(oldNIM: String, mahasiswa: Mahasiswa){
         val db = writableDatabase
         val values = ContentValues().apply {
@@ -103,14 +105,16 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
             put(COLUMN_PRODI, mahasiswa.prodi)
             put(COLUMN_JENIS_KELAMIN, mahasiswa.jenisKelamin)
             put(COLUMN_ALAMAT, mahasiswa.alamat)
-            put(COLUMN_SEMESTER, mahasiswa.semester)
-            put(COLUMN_TAHUNMASUK, mahasiswa.tahunmasuk)
+            put(COLUMN_TAHUN_MASUK, mahasiswa.tahunMasuk)
+            put(COLUMN_NOHP, mahasiswa.noHp)
+            put(COLUMN_EMAIL, mahasiswa.email)
         }
         val where = "$COLUMN_NIM = ?"
         val arg = arrayOf(oldNIM) 
         db.update(TABLE_NAME, values, where, arg)
         db.close()
     }
+
     fun deleteMahasiswa(nim: String){
         val db = writableDatabase
         val where = "$COLUMN_NIM = ?"

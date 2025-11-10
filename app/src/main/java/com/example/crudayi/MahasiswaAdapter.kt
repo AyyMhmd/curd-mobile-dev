@@ -11,18 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MahasiswaAdapter(private var mahasiswaList: List<Mahasiswa>, private val context: Context) : RecyclerView.Adapter<MahasiswaAdapter.MahasiswaViewHolder>() {
 
-    private val dbHelper = DBHelper(context) // Inisialisasi DBHelper di sini
+    private val dbHelper = DBHelper(context) 
 
     class MahasiswaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nimTextView: TextView = itemView.findViewById(R.id.nimTextView)
         val namaTextView: TextView = itemView.findViewById(R.id.namaTextView)
         val prodiTextView: TextView = itemView.findViewById(R.id.prodiTextView)
-        val jenisKelaminTextView: TextView = itemView.findViewById(R.id.jenisKelaminTextView) // Inisialisasi TextView baru
-        val alamatTextView: TextView = itemView.findViewById(R.id.alamatTextView)
-        val semesterTextView: TextView = itemView.findViewById(R.id.semesterTextView)
-        val tahunmasukTextView: TextView =itemView.findViewById(R.id.TahunMasukEditText)
-        val updateButton: TextView = itemView.findViewById(R.id.updateButton)
-        val deleteButton: TextView = itemView.findViewById(R.id.deleteButton)
+        // Menghapus referensi ke jenisKelaminTextView, alamatTextView, semesterTextView, tahunMasukTextView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MahasiswaViewHolder {
@@ -35,24 +30,15 @@ class MahasiswaAdapter(private var mahasiswaList: List<Mahasiswa>, private val c
         holder.nimTextView.text = "NIM: ${mahasiswa.nim}"
         holder.namaTextView.text = "Nama: ${mahasiswa.nama}"
         holder.prodiTextView.text = "Prodi: ${mahasiswa.prodi}"
-        holder.jenisKelaminTextView.text = "Jenis Kelamin: ${mahasiswa.jenisKelamin}"
-        holder.alamatTextView.text = "Alamat: ${mahasiswa.alamat}"
-        holder.semesterTextView.text = "Semester: ${mahasiswa.semester}"
-        holder.tahunmasukTextView.text ="Tahun Masuk: ${mahasiswa.tahunmasuk}"
+        // Menghapus binding untuk jenisKelaminTextView, alamatTextView, semesterTextView, tahunMasukTextView
 
-        holder.updateButton.setOnClickListener {
-            val intent = Intent(holder.itemView.context, UpdateMahasiswaActivity::class.java)
-            intent.putExtra("OldNim", mahasiswa.nim)
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailMahasiswaActivity::class.java)
+            intent.putExtra("nim", mahasiswa.nim) 
             holder.itemView.context.startActivity(intent)
-
-
-    }
-
-        holder.deleteButton.setOnClickListener {
-            dbHelper.deleteMahasiswa(mahasiswa.nim)
-            refreshData(dbHelper.getAllMahasiswa())
-            Toast.makeText(holder.itemView.context, "Data Mahasiswa Berhasil Dihapus", Toast.LENGTH_LONG).show()
         }
+
+
     }
 
     override fun getItemCount(): Int = mahasiswaList.size

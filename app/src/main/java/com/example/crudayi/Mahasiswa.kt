@@ -5,11 +5,8 @@ data class Mahasiswa(
     val nama : String,
     val prodi: String,
     val jenisKelamin: String,
-    val alamat : String,
-    val semester : String,
-    val tahunmasuk : String,
+    val alamat: String,
+    val tahunMasuk: String,
+    val noHp: String,
+    val email: String
 )
-
-
-
-

@@ -30,27 +30,27 @@
                 android:textSize="18sp"
                 android:text="NIM: Contoh NIM"/>
 
-            <TextView
-                android:id="@+id/updateButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/outline_edit_24"
-                android:clickable="true"
-                android:focusable="true"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:gravity="center"/>
+<!--            <TextView-->
+<!--                android:id="@+id/updateButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:drawableEnd="@drawable/outline_edit_24"-->
+<!--                android:clickable="true"-->
+<!--                android:focusable="true"-->
+<!--                android:paddingStart="8dp"-->
+<!--                android:paddingEnd="8dp"-->
+<!--                android:gravity="center"/>-->
 
-            <TextView
-                android:id="@+id/deleteButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/outline_delete_24"
-                android:clickable="true"
-                android:focusable="true"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:gravity="center"/>
+<!--            <TextView-->
+<!--                android:id="@+id/deleteButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:drawableEnd="@drawable/outline_delete_24"-->
+<!--                android:clickable="true"-->
+<!--                android:focusable="true"-->
+<!--                android:paddingStart="8dp"-->
+<!--                android:paddingEnd="8dp"-->
+<!--                android:gravity="center"/>-->
 
         </LinearLayout>
 
@@ -69,38 +69,6 @@
             android:textSize="16sp"
             android:layout_marginTop="4dp"
             android:text="Prodi: Contoh Prodi"/>
-
-        <TextView
-            android:id="@+id/jenisKelaminTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="4dp"
-            android:text="Jenis Kelamin: Contoh Jenis Kelamin"/>
-
-        <TextView
-            android:id="@+id/alamatTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="4dp"
-            android:text="alamat: Contoh Alamat"/>
-
-        <TextView
-            android:id="@+id/semesterTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="4dp"
-            android:text="semester: Contoh Semester"/>
-        <TextView
-            android:id="@+id/TahunMasukEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="4dp"
-            android:text="tahunmasuk: Contoh TahunMasuk"/>
-
 
     </LinearLayout>
 

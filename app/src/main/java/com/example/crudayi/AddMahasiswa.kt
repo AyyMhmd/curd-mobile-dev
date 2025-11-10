@@ -1,6 +1,7 @@
 package com.example.crudayi
 
 import android.animation.Animator
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -31,20 +32,19 @@ class AddMahasiswa : AppCompatActivity() {
             val prodi = binding.prodiEditText.text.toString()
             val jenisKelamin = binding.jenisKelaminEditText.text.toString()
             val alamat = binding.AlamatEditText.text.toString()
-            val semester = binding.SemesterEditText.text.toString()
-            val tahunmasuk = binding.TahunMasukEditText.text.toString()
+            val tahunMasuk = binding.TahunMasukEditText.text.toString()
+            val noHp = binding.noHpEditText.text.toString() 
+            val email = binding.emailEditText.text.toString() 
 
-
-
-            if (nim.isEmpty() || nama.isEmpty() || prodi.isEmpty() || jenisKelamin.isEmpty()) {
+            if (nim.isEmpty() || nama.isEmpty() || prodi.isEmpty() || jenisKelamin.isEmpty() || alamat.isEmpty() || tahunMasuk.isEmpty() || noHp.isEmpty() || email.isEmpty()) {
                 Toast.makeText(this, "Harap isi semua kolom!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val mahasiswa = Mahasiswa(nim, nama, prodi, jenisKelamin, alamat, semester,tahunmasuk)
+            val mahasiswa = Mahasiswa(nim, nama, prodi, jenisKelamin, alamat, tahunMasuk, noHp, email)
             dbHelper.InsertMahasiswa(mahasiswa)
 
-            // Tampilkan dan mainkan animasi sukses
+            successAnimationView.bringToFront()
             successAnimationView.visibility = View.VISIBLE
             successAnimationView.playAnimation()
 
@@ -59,6 +59,7 @@ class AddMahasiswa : AppCompatActivity() {
                 override fun onAnimationRepeat(animation: Animator) {}
             })
         }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
